@@ -8,12 +8,12 @@ class Group < ApplicationRecord
     groups = Group.all
     counter = 0
     while !(new_members.empty?) || !(not_new_members.empty?)
-      counter += 1
       if !(new_members.empty?)
         groups[counter % groups.count].diners << new_members.shift << not_new_members.shift
       elsif !(not_new_members.empty?)
         groups[counter % groups.count].diners << not_new_members.shift
       end
+      counter += 1
     end
   end
 
