@@ -25,3 +25,4 @@ end
 end
 
 Group.create_groups
+Group.add_members_to_groups

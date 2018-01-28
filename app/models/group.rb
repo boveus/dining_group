@@ -3,10 +3,8 @@ class Group < ApplicationRecord
   has_many :diners, through: :diners_groups
 
   def self.add_members_to_groups
-    new_members = Diner.new_members.to_a
-    not_new_members = Diner.not_new.to_a
-    new_members.shuffle
-    not_new_members.shuffle
+    new_members = Diner.new_members.to_a.shuffle
+    not_new_members = Diner.not_new.to_a.shuffle
     groups = Group.all
     counter = 0
     while !(new_members.empty?) || !(not_new_members.empty?)
